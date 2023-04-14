@@ -1,5 +1,4 @@
 import javax.swing.JOptionPane;
-import Math;
 public class SecondDegree {
     public static void main(String[] args){
         String a =JOptionPane.showInputDialog(null, "Enter a", "Sol second Order",
