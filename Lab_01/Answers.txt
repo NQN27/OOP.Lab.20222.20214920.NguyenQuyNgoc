@@ -1,4 +1,4 @@
 Exercise
 6.1:
 Q1 If users choose "Cancel" it will return the "No" choice
-Q2 Yes we can
+Q2 Yes we can by adding null, JOptionPane.YES_NO_OPTION to showConfirmDialog
