@@ -1,0 +1,4 @@
+Exercise
+6.1:
+Q1 If users choose "Cancel" it will return the "No" choice
+Q2 Yes we can
