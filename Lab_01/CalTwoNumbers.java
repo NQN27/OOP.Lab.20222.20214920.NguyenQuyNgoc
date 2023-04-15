@@ -10,7 +10,7 @@ public class CalTwoNumbers{
         double Num1 = Double.parseDouble(Number1);
         double Num2 = Double.parseDouble(Number2);
         JOptionPane.showMessageDialog(null,Num1+Num2,"Sum",JOptionPane.INFORMATION_MESSAGE);
-        JOptionPane.showMessageDialog(null,Num1-Num2,"Dif",JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(null,Math.abs(Num1-Num2),"Dif",JOptionPane.INFORMATION_MESSAGE);
         JOptionPane.showMessageDialog(null,Num1*Num2,"product",JOptionPane.INFORMATION_MESSAGE);
         if (Num1%Num2 ==0){
             JOptionPane.showMessageDialog(null,"Yes, they are divisor","Quotient",JOptionPane.INFORMATION_MESSAGE);
