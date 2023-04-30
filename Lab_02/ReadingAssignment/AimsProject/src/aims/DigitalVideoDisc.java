@@ -4,8 +4,8 @@ public class DigitalVideoDisc {
 	private String title = null;
 	private String category = null;
 	private String director = null;
-	private int length = 0;
-	private float cost = 0;
+	private int length = 0; 
+	private float cost = 0; //set default price for DVD that not have.
 	public String getCategory() {
 		return category;
 	}
