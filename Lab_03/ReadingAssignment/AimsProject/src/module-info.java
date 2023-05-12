@@ -1,0 +1,9 @@
+/**
+ * 
+ */
+/**
+ * @author FPTSHOP
+ *
+ */
+module AimsProject {
+}
