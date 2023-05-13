@@ -1,0 +1,10 @@
+package hust.soict.dsai.test.store;
+
+public class testStore {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

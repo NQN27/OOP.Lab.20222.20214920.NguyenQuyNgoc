@@ -17,6 +17,11 @@ public class Aims {
 		System.out.println(anOrder.totalCost());
 		anOrder.showDigitalVideoDisc();
 		anOrder.addDigitalVideoDisc(dvd3,dvd1);
+<<<<<<< HEAD
 		System.out.println(anOrder);
+=======
+		anOrder.printout();
+		anOrder.searchTitle("Aladin");
+>>>>>>> topic/PassingParameter
 	}
 }

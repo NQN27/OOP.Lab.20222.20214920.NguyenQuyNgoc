@@ -1,3 +1,8 @@
+<<<<<<< HEAD
 GitRepositoriesView.GitDirectories=C\:\\Users\\FPTSHOP\\Desktop\\Java_OOP\\Lab\\ON_lab\\OOP.DSAI.20222.20214920.NGUYENQUYNGOC\\.git;
 GitRepositoriesView.GitDirectories.relative=C\:\\Users\\FPTSHOP\\Desktop\\Java_OOP\\Lab\\ON_lab\\OOP.DSAI.20222.20214920.NGUYENQUYNGOC\\.git;
+=======
+GitRepositoriesView.GitDirectories=C\:\\Users\\FPTSHOP\\Desktop\\Java_OOP\\Lab\\ON_lab\\OOP.DSAI.20222.20214920.NGUYENQUYNGOC\\.git;C\:\\Users\\FPTSHOP\\Desktop\\Java_OOP\\Lab\\ON_lab\\OOP.Lab.20222.20214920.NguyenQuyNgoc\\.git;
+GitRepositoriesView.GitDirectories.relative=C\:\\Users\\FPTSHOP\\Desktop\\Java_OOP\\Lab\\ON_lab\\OOP.DSAI.20222.20214920.NGUYENQUYNGOC\\.git;C\:\\Users\\FPTSHOP\\Desktop\\Java_OOP\\Lab\\ON_lab\\OOP.Lab.20222.20214920.NguyenQuyNgoc\\.git;
+>>>>>>> topic/PassingParameter
 eclipse.preferences.version=1

@@ -4,4 +4,9 @@
 	</section>
 	<section name="FileSystemImportWizard">
 	</section>
+<<<<<<< HEAD
+=======
+	<section name="NewWizardAction">
+	</section>
+>>>>>>> topic/PassingParameter
 </section>
