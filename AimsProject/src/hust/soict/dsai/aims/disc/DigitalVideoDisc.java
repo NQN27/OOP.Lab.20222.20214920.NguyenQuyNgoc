@@ -7,11 +7,10 @@ public class DigitalVideoDisc {
 	private int length = 0; 
 	private float cost = 0; //set default price for DVD that not have.
 	private static int nbDigitalVideoDisc=0;
-<<<<<<< HEAD
-	private int id;
-=======
+
+
 	private int id = 0;
->>>>>>> topic/PassingParameter
+
 	public String getCategory() {
 		return category;
 	}
@@ -82,12 +81,12 @@ public class DigitalVideoDisc {
 	public int getId() {
 		return id;
 	}
-<<<<<<< HEAD
+
 	public void setId(int id) {
 		this.id = id;
 	}
 
-=======
+
 	public String toString() {
 		return this.id+".DVD-"+this.title+" - "+this.category+" - "+this.director+" - "+this.length+" :"+this.cost+" $";
 	}
@@ -95,7 +94,7 @@ public class DigitalVideoDisc {
 		if (this.title ==title1) {return true;}
 		else { return false;}
 	}
->>>>>>> topic/PassingParameter
+
 
 }
 

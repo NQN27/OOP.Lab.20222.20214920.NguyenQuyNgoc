@@ -74,7 +74,7 @@ public class Cart {
 		addDigitalVideoDisc(dvd1);
 		addDigitalVideoDisc(dvd2);
 	}
-<<<<<<< HEAD
+
 	public boolean isMatch(String title) {
 		for (int i=0;i<this.qtyOrdered;i++) {
 			if (title ==this.itemsOrdered[i].getTitle()) {
@@ -93,8 +93,8 @@ public class Cart {
 			sum+=itemsOrdered[i].getCost();
 		}
 		printout=printout +"Total cost: "+sum+"\n***************************************************";
-		return printout;
-=======
+		return printout;}
+
 	public void searchTitle(String title) {
 		for (int i=0;i<this.qtyOrdered;i++) {
 			if (this.itemsOrdered[i].isMatch(title)) {
@@ -112,7 +112,7 @@ public class Cart {
 
 		}
 		System.out.println("Total cost: "+Cart.this.totalCost()+"\n***************************************************");
->>>>>>> topic/PassingParameter
+		
 	}
 }
 	

@@ -4,24 +4,25 @@ import hust.soict.dsai.aims.disc.DigitalVideoDisc;
 
 public class Store {
 	private int MAX_DISC=1000;
-	private DigitalVideoDisc itemsOrdered[] = new DigitalVideoDisc[MAX_DISC];
-	private int  qtyOrdered =0;
+	private DigitalVideoDisc itemsStore[] = new DigitalVideoDisc[MAX_DISC];
+	private int  qtyStore =0;
 	
 	public void addDVD(DigitalVideoDisc dvd1) {
 		int i =0;
-		while (this.itemsOrdered[i] != null) {
+		while (this.itemsStore[i] != null) {
 			i++;
 			if (i>=MAX_DISC) {
 				System.out.println("Store is full");
 				return;
 		}
 		}
-		this.itemsOrdered[i] = dvd1;
+		this.itemsStore[i] = dvd1;
 		System.out.println("Add successfully");
+		qtyStore+=1;
 	}
 	public void removeDVD(DigitalVideoDisc dvd1) {
 		int i =0;
-		while (this.itemsOrdered[i]!=dvd1) {
+		while (this.itemsStore[i]!=dvd1) {
 			i++;
 			if (i>MAX_DISC) {break;}
 		}
@@ -29,8 +30,9 @@ public class Store {
 			System.out.println("Delete Unsuccessfully");
 		}
 		else {
-			this.itemsOrdered[i] = null;
+			this.itemsStore[i] = null;
 			System.out.println("Delete successfully");
+			qtyStore-=1;
 		}
 		
 	}
