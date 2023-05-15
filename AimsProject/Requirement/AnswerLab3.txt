@@ -1,0 +1,9 @@
+Question:
+Is JAVA a Pass by Value or a Pass by Reference programming language?
+Answer: 
+-For modern programming language most are pass by value
+-Java is  Pass by Value programming language because a variable is refer to something itself
+-With primitive type it always pass by value where memory is stack
+-Non-primitive variables is stored in Heap memory, it will point a reference or an address to the stack
+memory where the actual data resides
+
