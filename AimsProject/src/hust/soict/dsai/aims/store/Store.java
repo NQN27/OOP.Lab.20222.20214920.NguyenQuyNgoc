@@ -5,7 +5,7 @@ import hust.soict.dsai.aims.disc.DigitalVideoDisc;
 public class Store {
 	private int MAX_DISC=1000;
 	private DigitalVideoDisc itemsStore[] = new DigitalVideoDisc[MAX_DISC];
-	private int  qtyOrdered =0;
+	private int  qtyStore =0;
 	
 	public void addDVD(DigitalVideoDisc dvd1) {
 		int i =0;
@@ -18,7 +18,7 @@ public class Store {
 		}
 		this.itemsStore[i] = dvd1;
 		System.out.println("Add successfully");
-		qtyOrdered+=1;
+		qtyStore+=1;
 	}
 	public void removeDVD(DigitalVideoDisc dvd1) {
 		int i =0;
@@ -32,7 +32,7 @@ public class Store {
 		else {
 			this.itemsStore[i] = null;
 			System.out.println("Delete successfully");
-			qtyOrdered-=1;
+			qtyStore-=1;
 		}
 		
 	}
