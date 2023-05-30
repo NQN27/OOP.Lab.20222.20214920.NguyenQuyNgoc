@@ -34,7 +34,12 @@ public class Media {
 		this.Date = date;
 
 	}
-	public Media() {
+	public Media(int id, String title, String category, float cost, LocalDate date) {
+		this.id = id;
+		this.title = title;
+		this.category = category;
+		this.cost = cost;
+		this.Date = date;
 		// TODO Auto-generated constructor stub
 	}
 
