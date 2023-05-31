@@ -2,7 +2,7 @@ package hust.soict.dsai.aims.media;
 import java.util.List;
 import java.util.ArrayList;
 import hust.soict.dsai.aims.media.Track;
-public class CompactDisc extends Disc {
+public class CompactDisc extends Disc implements Playable {
 	private String artist;
 	private List<Track> tracks = new ArrayList<Track>();
 	public CompactDisc( String title, String category, float cost,String director, String artist) {
@@ -32,5 +32,10 @@ public class CompactDisc extends Disc {
 				return;
 		}
 		System.out.println("No Track to Remove");
+	}
+	public void play() {
+		for (int i=0;i<this.tracks.size();i++) {
+			tracks.get(i).play();
+		}
 	}
 }
