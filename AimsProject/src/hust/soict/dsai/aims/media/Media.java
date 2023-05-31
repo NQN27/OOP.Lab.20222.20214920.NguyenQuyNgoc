@@ -1,11 +1,16 @@
 package hust.soict.dsai.aims.media;
-import java.time.LocalDate;
 public class Media {
 	private int id;
 	private String title;
 	private String category;
 	private float cost;
-	private LocalDate Date;
+	private static int idsetvalue=0;
+	public static int getIdsetvalue() {
+		return idsetvalue;
+	}
+	public static void setIdsetvalue(int idsetvalue) {
+		Media.idsetvalue = idsetvalue;
+	}
 	public int getId() {
 		return id;
 	}
@@ -30,16 +35,12 @@ public class Media {
 	public void setCost(float cost) {
 		this.cost = cost;
 	}
-	public void setDate(LocalDate date) {
-		this.Date = date;
 
-	}
-	public Media(int id, String title, String category, float cost, LocalDate date) {
-		this.id = id;
+	public Media(String title, String category, float cost) {
+		this.id = idsetvalue++;
 		this.title = title;
 		this.category = category;
 		this.cost = cost;
-		this.Date = date;
 		// TODO Auto-generated constructor stub
 	}
 

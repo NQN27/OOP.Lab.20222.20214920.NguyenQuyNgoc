@@ -6,7 +6,7 @@ public class Book extends Media{
 
 	public void addAuthor(String authorName) {
 		for (int i=0;i<this.authors.size();i++) {
-			if (this.authors.get(i) == authorName){
+			if (this.authors.get(i).equals(authorName)){
 				System.out.print("Already exist");
 				return;
 			}
@@ -16,7 +16,7 @@ public class Book extends Media{
 	}
 	public void removeAuthor(String authorName) {
 		for (int i=0;i<this.authors.size();i++) {
-			if (this.authors.get(i) == authorName){
+			if (this.authors.get(i).equals(authorName)){
 				this.authors.remove(authorName);
 				System.out.println("Remove Successfully");
 				return;
@@ -25,7 +25,14 @@ public class Book extends Media{
 		}
 	}
 
-	public Book() {
+	public Book( String title, String category, float cost,List<String> authors) {
+		super(title,category,cost);
+		for (int i=0;i<=authors.size();i++) {
+			addAuthor(authors.get(i));
+		}
 	}
-
+	public Book( String title, String category, float cost,String authors) {
+		super(title,category,cost);
+		this.authors.add(authors) ;
+	}
 }
