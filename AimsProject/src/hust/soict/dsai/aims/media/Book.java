@@ -35,4 +35,18 @@ public class Book extends Media{
 		super(title,category,cost);
 		this.authors.add(authors) ;
 	}
+	public boolean equals(Object obj) {
+		if (obj instanceof Book) {
+			if (((Book) obj).getTitle().equals(this.getTitle())) {
+				return true;
+			}
+		}
+		return false;
+	}
+	public String toString() {
+		String nameauthor="";
+		for (int i=0;i<=this.authors.size();i++) {
+			nameauthor=nameauthor+" "+this.authors.get(i);
+		}
+	return this.getId()+"Book-"+this.getTitle()+" - "+this.getCategory()+" - "+" - "+" :"+this.getCost()+nameauthor;}
 }

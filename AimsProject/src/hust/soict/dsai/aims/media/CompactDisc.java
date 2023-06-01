@@ -38,4 +38,18 @@ public class CompactDisc extends Disc implements Playable {
 			tracks.get(i).play();
 		}
 	}
+	public boolean equals(Object obj) {
+		if (obj instanceof CompactDisc) {
+			if (((CompactDisc) obj).getTitle().equals(this.getTitle())) {
+				return true;
+			}
+		}
+		return false;
+	}
+	public String toString() {
+		String alltrack = "";
+		for(int i=0;i<this.tracks.size();i++) {
+			alltrack=alltrack+this.tracks.get(i)+" ";
+		}
+		return this.getId()+"CD-"+this.getTitle()+" - "+this.getCategory()+" - "+this.getDirector()+" - "+this.getLength()+" :"+this.getCost()+alltrack+" $ \n";}
 }

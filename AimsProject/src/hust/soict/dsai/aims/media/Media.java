@@ -35,7 +35,10 @@ public class Media {
 	public void setCost(float cost) {
 		this.cost = cost;
 	}
-
+	public boolean isMatch(String title1) {
+		if (this.getTitle() ==title1) {return true;}
+		else { return false;}
+	}
 	public Media(String title, String category, float cost) {
 		this.id = idsetvalue++;
 		this.title = title;
@@ -43,5 +46,6 @@ public class Media {
 		this.cost = cost;
 		// TODO Auto-generated constructor stub
 	}
+
 
 }

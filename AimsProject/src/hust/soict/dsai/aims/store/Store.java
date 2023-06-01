@@ -1,41 +1,34 @@
 package hust.soict.dsai.aims.store;
-
-import hust.soict.dsai.aims.media.DigitalVideoDisc;
+import java.util.ArrayList;
+import java.util.List;
+import hust.soict.dsai.aims.media.Media;
 
 public class Store {
-	private int MAX_DISC=1000;
-	private DigitalVideoDisc itemsStore[] = new DigitalVideoDisc[MAX_DISC];
-	private int  qtyStore =0;
+	private List<Media> itemsStore = new ArrayList<Media>();
+	private int qtyStore =0;
 	
-	public void addDVD(DigitalVideoDisc dvd1) {
-		int i =0;
-		while (this.itemsStore[i] != null) {
-			i++;
-			if (i>=MAX_DISC) {
-				System.out.println("Store is full");
-				return;
+	public void addDVD(Media md1) {
+		if (itemsStore.contains(md1)) {
+			System.out.println("Already in");
+			return;
 		}
-		}
-		this.itemsStore[i] = dvd1;
+		this.itemsStore.add(md1);
+			
 		System.out.println("Add successfully");
-		qtyStore+=1;
+		this.qtyStore+=1;
 	}
-	public void removeDVD(DigitalVideoDisc dvd1) {
-		int i =0;
-		while (this.itemsStore[i]!=dvd1) {
-			i++;
-			if (i>MAX_DISC) {break;}
+	public void removeDVD(Media md1) {
+		if (itemsStore.contains(md1)) {
+			this.itemsStore.remove(md1);
+			System.out.println("Remove successfully");
+			this.qtyStore-=1;
+			return;
 		}
-		if (i>MAX_DISC) {
-			System.out.println("Delete Unsuccessfully");
-		}
-		else {
-			this.itemsStore[i] = null;
-			System.out.println("Delete successfully");
-			qtyStore-=1;
+			
+		System.out.println("Not found");
 		}
 		
 	}
 	
-}
+
 

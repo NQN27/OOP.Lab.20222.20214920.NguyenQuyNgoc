@@ -19,14 +19,17 @@ public class DigitalVideoDisc extends Disc implements Playable{
 	public String toString() {
 		return this.getId()+".DVD-"+this.getTitle()+" - "+this.getCategory()+" - "+this.getDirector()+" - "+this.getLength()+" :"+this.getCost()+" $";
 	}
-	public boolean isMatch(String title1) {
-		if (this.getTitle() ==title1) {return true;}
-		else { return false;}
-	}
 	public void play() {
 		System.out.println("Playing DVD: "+ this.getTitle());
 		System.out.println("DVD length: "+ this.getLength());
 	}
-
+	public boolean equals(Object obj) {
+		if (obj instanceof DigitalVideoDisc) {
+			if (((DigitalVideoDisc) obj).getTitle().equals(this.getTitle())) {
+				return true;
+			}
+		}
+		return false;
+	}
 }
 
