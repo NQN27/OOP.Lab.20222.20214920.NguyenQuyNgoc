@@ -1,7 +1,7 @@
 package hust.soict.dsai.aims.cart;
 import java.util.*;
 import hust.soict.dsai.aims.media.Media;
-
+import java.util.Collections;
 public class Cart {
 	private ArrayList<Media> itemsCart = new ArrayList<Media>();
 	
@@ -40,7 +40,6 @@ public class Cart {
 		addMedia(dvd2);
 	}
 
-
 	public void searchTitle(String title) {
 		for (int i=0;i<this.itemsCart.size();i++) {
 			if (this.itemsCart.get(i).isMatch(title)) {
@@ -59,6 +58,49 @@ public class Cart {
 		}
 		System.out.println("Total cost: "+Cart.this.totalCost()+"\n***************************************************");
 		
+	}
+	public ArrayList<Media> searchMedia(String title){
+		ArrayList<Media> listSearch = new ArrayList<Media>();
+		for (int i=0; i<this.itemsCart.size();i++) {
+			if (this.itemsCart.get(i).getTitle().equals(title)) {
+				listSearch.add(this.itemsCart.get(i));
+			}
+		}
+		if (listSearch.size()==0) {
+			System.out.println("Not found");
+		}
+		else {
+			for (int i=0; i<listSearch.size();i++) {
+				System.out.println(listSearch.get(i)+"/n");
+			}
+		}
+		return listSearch;
+	}
+	public ArrayList<Media> searchMediaID(int id){
+		ArrayList<Media> listSearch = new ArrayList<Media>();
+		for (int i=0; i<this.itemsCart.size();i++) {
+			if (this.itemsCart.get(i).getId()==id) {
+				listSearch.add(this.itemsCart.get(i));
+			}
+		}
+		if (listSearch.size()==0) {
+			System.out.println("Not found");
+		}
+		else {
+			for (int i=0; i<listSearch.size();i++) {
+				System.out.println(listSearch.get(i)+"/n");
+			}
+		}
+		return listSearch;
+	}
+	public void  SortbyTitleCost() {
+		Collections.sort(itemsCart,Media.COMPARATOR_BY_TITLE_COST);
+	}
+	public void  SortbyCostTitle() {
+		Collections.sort(itemsCart,Media.COMPARATOR_BY_COST_TITLE);
+	}
+	public void clear() {
+		itemsCart.clear();
 	}
 }
 	

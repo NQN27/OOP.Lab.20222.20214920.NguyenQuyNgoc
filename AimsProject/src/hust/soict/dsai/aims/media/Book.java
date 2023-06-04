@@ -2,7 +2,7 @@ package hust.soict.dsai.aims.media;
 import java.util.*;
 public class Book extends Media{
 	
-	private List<String> authors = new ArrayList<String>();
+	private ArrayList<String> authors = new ArrayList<String>();
 
 	public void addAuthor(String authorName) {
 		for (int i=0;i<this.authors.size();i++) {
@@ -44,9 +44,9 @@ public class Book extends Media{
 		return false;
 	}
 	public String toString() {
-		String nameauthor="";
-		for (int i=0;i<=this.authors.size();i++) {
+		String nameauthor="Author :";
+		for (int i=0;i<this.authors.size();i++) {
 			nameauthor=nameauthor+" "+this.authors.get(i);
 		}
-	return this.getId()+"Book-"+this.getTitle()+" - "+this.getCategory()+" - "+" - "+" :"+this.getCost()+nameauthor;}
+	return this.getId()+"Book-"+this.getTitle()+" - "+this.getCategory()+" - "+" - "+" :"+this.getCost()+"$ -"+nameauthor;}
 }
