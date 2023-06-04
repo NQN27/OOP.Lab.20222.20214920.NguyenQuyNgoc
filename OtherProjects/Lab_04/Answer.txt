@@ -1,0 +1,32 @@
+ Alternatively, to compare items in the cart, instead of using Comparator, we can use the 
+Comparable interface and override the compareTo()method. You can refer to the Java docs to see the 
+information of this interface. 
+Suppose we are taking this Comparable interface approach.
+- What class should implement the Comparable interface?
++ Implement in Media Class
+- In those classes, how should you implement the compareTo()method be to reflect the ordering that we 
+want?
++ We have to implement Comparable<Media> to class Media
+	public int compareTo(Media md2){
+		int title_compare = this.getTitle().compareTo(md2.getTitle());
+		int cost_compare = Float.compare(this.getCost(), md2.getCost());
+		// title-cost
+		if (title_compare !=0) {return title_compare;}
+		else {return cost_compare;}
+		// cost-title
+		if (cost_compare !=0) {return cost_compare;}
+		else {return title_compare;}
+		// pick 1 of 2
+		}
+- Can we have two ordering rules of the item (by title then cost and by cost then title) if we use this 
+Comparable interface approach?
++ No, compareTo() is one method only
+- Suppose the DVDs has a different ordering rule from the other media types, that is by title, then decreasing 
+length, then cost. How would you modify your code to allow this ?
+we overwrite it in the DVD class 
+public int compareTo(Media md2){
+	if (md2 instanceof DigitalVideoDisc){
+	// specific compare condition
+	}
+	// normal compare condition
+	}
