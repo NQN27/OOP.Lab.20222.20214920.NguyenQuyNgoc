@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 import hust.soict.dsai.aims.media.Media;
 public class Store {
-	private List<Media> itemsStore = new ArrayList<Media>();
+	private ArrayList<Media> itemsStore = new ArrayList<Media>();
 	
 	public void addMedia(Media md1) {
 		if (itemsStore.contains(md1)) {
@@ -62,6 +62,10 @@ public class Store {
 			}
 		}
 		return listSearch;
+	}
+	public ArrayList<Media> getItemsInStore() {
+		// TODO Auto-generated method stub
+		return this.itemsStore;
 	}
 		
 }
