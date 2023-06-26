@@ -1,13 +1,18 @@
 package hust.soict.dsai.aims.cart;
-import java.util.*;
-import hust.soict.dsai.aims.media.Media;
+import java.util.ArrayList;
 import java.util.Collections;
-public class Cart {
-	private ArrayList<Media> itemsCart = new ArrayList<Media>();
-	
-	public void addMedia(Media mda) {
-		if(this.itemsCart.contains(mda)) {
-			System.out.println("Already in");
+
+import hust.soict.dsai.aims.exception.LimitException;
+import hust.soict.dsai.aims.media.Media;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+public class Cart  {
+
+	private ObservableList<Media> itemsCart = FXCollections.observableArrayList();
+	int MAX_NUMBER_ORDER = 20;
+	public void addMedia(Media mda) throws LimitException {
+		if (this.itemsCart.size()>20) {
+			throw new LimitException("Max number reach");
 		}
 	this.itemsCart.add(mda);
 	System.out.println("Add successfully");
@@ -16,7 +21,7 @@ public class Cart {
 		if (this.itemsCart.contains(mda)) {
 			this.itemsCart.remove(mda);
 			System.out.println("Remove successfully");
-			
+			return;
 			}
 		System.out.println("Not found");
 		return;
@@ -35,9 +40,13 @@ public class Cart {
 		return totalcost;
 	}
 
-	public void addMedia(Media dvd1,Media dvd2){
+	public void addMedia(Media dvd1,Media dvd2) throws LimitException{
+		try {
 		addMedia(dvd1);
-		addMedia(dvd2);
+		addMedia(dvd2);}
+		catch (LimitException ex) {
+			System.out.println("Out of range");
+		}
 	}
 
 	public void searchTitle(String title) {
@@ -101,6 +110,13 @@ public class Cart {
 	}
 	public void clear() {
 		itemsCart.clear();
+	}
+	public ObservableList<Media> getItemsOrdered() {
+		// TODO Auto-generated method stub
+		return this.itemsCart;
+	}
+	public int getSize() {
+		return this.itemsCart.size();
 	}
 }
 	

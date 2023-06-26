@@ -15,27 +15,38 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/20.0.1">
+<AnchorPane fx:id="All" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <BorderPane prefHeight="678.0" prefWidth="981.0">
          <top>
             <VBox prefWidth="100.0" BorderPane.alignment="CENTER">
                <children>
-                  <Label text="Cart" textFill="AQUA">
-                     <font>
-                        <Font size="50.0" />
-                     </font>
-                     <padding>
-                        <Insets left="10.0" />
-                     </padding>
-                  </Label>
-                  <MenuBar>
+                  <HBox>
+                     <children>
+                        <Label text="Cart" textFill="AQUA">
+                           <font>
+                              <Font size="50.0" />
+                           </font>
+                           <padding>
+                              <Insets left="10.0" />
+                           </padding>
+                        </Label>
+                        <Region prefWidth="760.0" />
+                        <ButtonBar buttonMinWidth="50.0" buttonOrder="R_HE+U+FBIX_NCYOA_R" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" />
+                      <Button fx:id="CloseButton" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#btnMenuBar" text="MenuBar" textAlignment="CENTER" textFill="#0018fcbd">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <MenuBar cache="true">
                     <menus>
-                        <Menu mnemonicParsing="false" text="Unspecified Menu">
+                        <Menu mnemonicParsing="false" text="Cart">
                           <items>
                             <MenuItem mnemonicParsing="false" text="Action 1" />
                             <Menu mnemonicParsing="false" text="File">
@@ -71,11 +82,11 @@
                         <RadioButton mnemonicParsing="false" text="By Title" toggleGroup="$filterCategory" />
                      </children>
                   </HBox>
-                  <TableView>
+                  <TableView fx:id="tblMedia">
                     <columns>
-                      <TableColumn prefWidth="75.0" text="Title" />
-                      <TableColumn prefWidth="75.0" text="Category" />
-                        <TableColumn prefWidth="75.0" text="Cost" />
+                      <TableColumn fx:id="colMediaTitle" prefWidth="75.0" text="Title" />
+                      <TableColumn fx:id="colMediaCategory" prefWidth="75.0" text="Category" />
+                        <TableColumn fx:id="colMediaCost" prefWidth="75.0" text="Cost" />
                     </columns>
                      <columnResizePolicy>
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -83,12 +94,12 @@
                   </TableView>
                   <ButtonBar prefHeight="40.0" prefWidth="200.0">
                     <buttons>
-                      <Button mnemonicParsing="false" text="Play" />
+                      <Button fx:id="btnPlay" mnemonicParsing="false" onAction="#btnPlayMedia" text="Play" />
                     </buttons>
                   </ButtonBar>
                   <ButtonBar prefHeight="40.0" prefWidth="200.0">
                     <buttons>
-                      <Button mnemonicParsing="false" text="Remove" />
+                      <Button fx:id="btnRemove" mnemonicParsing="false" onAction="#btnRemovePressed" text="Remove" />
                     </buttons>
                   </ButtonBar>
                </children>
@@ -110,18 +121,22 @@
                               <Font size="24.0" />
                            </font>
                         </Label>
-                        <Label text="0 $" textFill="AQUA">
+                        <Label fx:id="costCalculate" text="0 $" textFill="AQUA">
                            <font>
                               <Font size="24.0" />
                            </font>
                         </Label>
                      </children>
                   </HBox>
-                  <Label style="-fx-background-color: red;" text="Place Order" textFill="WHITE">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                  </Label>
+                  <ButtonBar onMouseClicked="#btnPlaceOrder">
+                     <buttons>
+                        <Label style="-fx-background-color: red;" text="Place Order" textFill="WHITE">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                     </buttons>
+                  </ButtonBar>
                </children>
             </VBox>
          </right>

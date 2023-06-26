@@ -1,5 +1,7 @@
 package hust.soict.dsai.aims.media;
 import java.util.Comparator;
+
+import hust.soict.dsai.aims.exception.NegativeException;
 public class Media {
 	private int id;
 	private String title;
@@ -40,11 +42,14 @@ public class Media {
 		if (this.getTitle() ==title1) {return true;}
 		else { return false;}
 	}
-	public Media(String title, String category, float cost) {
+	public Media(String title, String category, float cost) throws NegativeException {
 		this.id = idsetvalue++;
 		this.title = title;
 		this.category = category;
 		this.cost = cost;
+		if (cost<0) {
+			throw new NegativeException("Wrong Type");
+		}
 		// TODO Auto-generated constructor stub
 	}
 	public String toString() {

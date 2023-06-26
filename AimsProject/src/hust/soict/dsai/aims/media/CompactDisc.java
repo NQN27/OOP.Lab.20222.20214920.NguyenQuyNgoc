@@ -1,11 +1,15 @@
 package hust.soict.dsai.aims.media;
 import java.util.List;
 
+import hust.soict.dsai.aims.exception.LengthException;
+import hust.soict.dsai.aims.exception.NegativeException;
+import hust.soict.dsai.aims.exception.PlayerException;
+
 import java.util.ArrayList;
 public class CompactDisc extends Disc implements Playable {
 	private String artist;
 	private List<Track> tracks = new ArrayList<Track>();
-	public CompactDisc( String title, String category, float cost,String director, String artist) {
+	public CompactDisc( String title, String category, float cost,String director, String artist) throws NegativeException, LengthException {
 		super(title,category,cost,0,director);
 		this.artist = artist;
 		// TODO Auto-generated constructor stub
@@ -33,11 +37,19 @@ public class CompactDisc extends Disc implements Playable {
 		}
 		System.out.println("No Track to Remove");
 	}
-	public void play() {
+	public int play() {
+		int totalLength =0;
 		for (int i=0;i<this.tracks.size();i++) {
-			tracks.get(i).play();
+			try {
+				totalLength+=tracks.get(i).play();
+			} catch (PlayerException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
-	}
+		return totalLength;
+		}
+	
 	public boolean equals(Object obj) {
 		if (obj instanceof CompactDisc) {
 			if (((CompactDisc) obj).getTitle().equals(this.getTitle())) {

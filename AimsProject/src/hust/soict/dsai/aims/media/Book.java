@@ -1,5 +1,7 @@
 package hust.soict.dsai.aims.media;
 import java.util.*;
+
+import hust.soict.dsai.aims.exception.NegativeException;
 public class Book extends Media{
 	
 	private ArrayList<String> authors = new ArrayList<String>();
@@ -25,13 +27,13 @@ public class Book extends Media{
 		}
 	}
 
-	public Book( String title, String category, float cost,List<String> authors) {
+	public Book( String title, String category, float cost,ArrayList<String> authors) throws NegativeException {
 		super(title,category,cost);
-		for (int i=0;i<=authors.size();i++) {
+		for (int i=0;i<authors.size();i++) {
 			addAuthor(authors.get(i));
 		}
 	}
-	public Book( String title, String category, float cost,String authors) {
+	public Book( String title, String category, float cost,String authors) throws NegativeException {
 		super(title,category,cost);
 		this.authors.add(authors) ;
 	}

@@ -1,6 +1,10 @@
 package hust.soict.dsai.aims.aims;
 import java.util.ArrayList;
 import hust.soict.dsai.aims.cart.Cart;
+import hust.soict.dsai.aims.exception.LengthException;
+import hust.soict.dsai.aims.exception.LimitException;
+import hust.soict.dsai.aims.exception.NegativeException;
+import hust.soict.dsai.aims.exception.PlayerException;
 import hust.soict.dsai.aims.media.*;
 import java.util.Scanner;
 import hust.soict.dsai.aims.store.Store;
@@ -54,7 +58,16 @@ public class Aims {
 				String category = optadd.nextLine();
 				System.out.println("Enter director of media");
 				String director = optadd.nextLine();
-				DigitalVideoDisc dvd1 = new DigitalVideoDisc(title,category,director,length,cost);
+			DigitalVideoDisc dvd1 = null;
+			try {
+				dvd1 = new DigitalVideoDisc(title,category,director,length,cost);
+			} catch (NegativeException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (LengthException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 				store.addMedia(dvd1);
 				break;
 		case 2: // add Book
@@ -74,7 +87,13 @@ public class Aims {
 				}
 				author.add(nameauthor);
 			}
-			Book bk1 = new Book(titleb,categoryb,costb,author);
+			Book bk1 = null;
+			try {
+				bk1 = new Book(titleb,categoryb,costb,author);
+			} catch (NegativeException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			store.addMedia(bk1);
 			break;
 		case 3: // add CD
@@ -88,7 +107,13 @@ public class Aims {
 			float costcd = optadd.nextFloat();
 			System.out.println("Enter artist name");
 			String artist = optadd.nextLine();
-			CompactDisc cd1 = new CompactDisc(titlecd,categorycd,costcd,directorcd,artist);
+			CompactDisc cd1 = null;
+			try {
+				cd1 = new CompactDisc(titlecd,categorycd,costcd,directorcd,artist);
+			} catch (NegativeException | LengthException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			while (true) {
 				System.out.println("You enter the track and continue by pressing enter or stop by typing \"Out\" when the system ask");
 				System.out.print("Enter title track");
@@ -208,7 +233,12 @@ public class Aims {
 			if (mda3.size() != 0) {
 				for (Media r1:mda3) {
 					if (r1 instanceof Disc) {				
-						((Disc) r1).play();	
+						try {
+							((Disc) r1).play();
+						} catch (PlayerException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}	
 					} 
 					else if (r1 instanceof Book)
 						System.out.println("Cannot play book");
@@ -227,15 +257,57 @@ public class Aims {
 	}
 
 	public static void main(String[] args) {
-		DigitalVideoDisc dvd1 = new DigitalVideoDisc("The Lion King","Animation","Roger Allers",87,19.95f);
+		DigitalVideoDisc dvd1 = null;
+		try {
+			dvd1 = new DigitalVideoDisc("The Lion King","Animation","Roger Allers",87,19.95f);
+		} catch (NegativeException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (LengthException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		store.addMedia(dvd1);
-		DigitalVideoDisc dvd2 = new DigitalVideoDisc("Star Wars","Science Fiction","George Lucas",87,24.95f);
+		DigitalVideoDisc dvd2 = null;
+		try {
+			dvd2 = new DigitalVideoDisc("Star Wars","Science Fiction","George Lucas",87,24.95f);
+		} catch (NegativeException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (LengthException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		store.addMedia(dvd2);
-		DigitalVideoDisc dvd3 = new DigitalVideoDisc("Aladin","Animation",18.99f);
+		DigitalVideoDisc dvd3 = null;
+		try {
+			dvd3 = new DigitalVideoDisc("Aladin","Animation",18.99f);
+		} catch (NegativeException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (LengthException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		store.addMedia(dvd3);
-		Book b1 = new Book("Wolf of Wall Street", "Comedy", 24.95f,"Martin Scorsese");
+		Book b1 = null;
+		try {
+			b1 = new Book("Wolf of Wall Street", "Comedy", 24.95f,"Martin Scorsese");
+		} catch (NegativeException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		store.addMedia(b1);
-		CompactDisc cd1 = new CompactDisc("Star Wars", "theme song", 30f, "George Lucas", "George Lucas");
+		CompactDisc cd1 = null;
+		try {
+			cd1 = new CompactDisc("Star Wars", "theme song", 30f, "George Lucas", "George Lucas");
+		} catch (NegativeException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (LengthException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		Track t1 = new Track("theme 1", 10);
 		cd1.addTrack(t1);
 		store.addMedia(cd1);
@@ -262,7 +334,12 @@ public class Aims {
 							int choice = updateCart();
 							switch(choice) {
 							case 1:
-								cart.addMedia(mda.get(i));
+								try {
+									cart.addMedia(mda.get(i));
+								} catch (LimitException e) {
+									// TODO Auto-generated catch block
+									e.printStackTrace();
+								}
 							case 2:
 								continue;
 							case 0:
@@ -278,7 +355,12 @@ public class Aims {
 					if (mda3.size() != 0) {
 						for (Media r:mda3) {
 							if (r instanceof Disc) {				
-								((Disc) r).play();	
+								try {
+									((Disc) r).play();
+								} catch (PlayerException e) {
+									// TODO Auto-generated catch block
+									e.printStackTrace();
+								}	
 							} else if (r instanceof Book)
 								System.out.println("Cannot play book");
 					}

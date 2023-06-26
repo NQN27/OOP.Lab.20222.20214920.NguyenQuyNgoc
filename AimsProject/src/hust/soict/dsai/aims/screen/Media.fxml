@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+
+
+<AnchorPane prefHeight="215.0" prefWidth="320.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171">
+   <children>
+      <Pane layoutX="-102.0" layoutY="-138.0" prefHeight="267.0" />
+      <HBox alignment="CENTER" layoutX="74.0" layoutY="155.0">
+         <children>
+            <ButtonBar>
+              <buttons>
+                <Button fx:id="btnaddtoCart" contentDisplay="CENTER" defaultButton="true" mnemonicParsing="false" rotationAxis="$null" text="Add to Cart" textAlignment="CENTER" />
+              </buttons>
+            </ButtonBar>
+            <ButtonBar>
+              <buttons>
+                <Button fx:id="btnPlay" contentDisplay="CENTER" disable="true" mnemonicParsing="false" text="Play" />
+              </buttons>
+            </ButtonBar>
+         </children>
+      </HBox>
+      <TextField fx:id="nameMedia" layoutX="86.0" layoutY="39.0" />
+   </children>
+</AnchorPane>
