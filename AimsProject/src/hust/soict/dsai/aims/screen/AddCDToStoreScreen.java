@@ -54,6 +54,25 @@ public class AddCDToStoreScreen extends AddItemToStoreScreen {
         	CompactDisc cd = null;
 			try {
 				cd = new CompactDisc(titletb.getText(), categorytb.getText(), Float.parseFloat(costtb.getText()), drttb.getText(),artisttb.getText());
+				ArrayList<String> alltrack = new ArrayList<String>(Arrays.asList(tracklisttb.getText().split(",")));
+	        	for (String atrack:alltrack) {
+	        		ArrayList<String> track = new ArrayList<String>(Arrays.asList(atrack.split(":")));
+	        		try {
+	        			Track track_add = new Track(track.get(0).trim(),Integer.parseInt(track.get(1)));
+	        			cd.addTrack(track_add);
+	        		}
+	        		catch(Exception ex) {
+	        			System.err.println(ex.getMessage());
+	        		}
+	        		try {
+	                    this.store.addMedia(cd);
+	                    JOptionPane.showMessageDialog(null, cd.getTitle() + " was added successfully.", "Success", JOptionPane.INFORMATION_MESSAGE);
+	                    new AddCDToStoreScreen( store, cart);
+	                    dispose();
+	                	}
+	                	catch(Exception ex) {
+	                    JOptionPane.showMessageDialog(null, ex.getMessage(), "Warning", JOptionPane.ERROR_MESSAGE);}
+	        	}
 			} catch (NumberFormatException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
@@ -64,25 +83,7 @@ public class AddCDToStoreScreen extends AddItemToStoreScreen {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
-        	ArrayList<String> alltrack = new ArrayList<String>(Arrays.asList(tracklisttb.getText().split(",")));
-        	for (String atrack:alltrack) {
-        		ArrayList<String> track = new ArrayList<String>(Arrays.asList(atrack.split(":")));
-        		try {
-        			Track track_add = new Track(track.get(0).trim(),Integer.parseInt(track.get(1)));
-        			cd.addTrack(track_add);
-        		}
-        		catch(Exception ex) {
-        			System.err.println(ex.getMessage());
-        		}
-        		try {
-                    this.store.addMedia(cd);
-                    JOptionPane.showMessageDialog(null, cd.getTitle() + " was added successfully.", "Success", JOptionPane.INFORMATION_MESSAGE);
-                    new AddCDToStoreScreen( store, cart);
-                    dispose();
-                	}
-                	catch(Exception ex) {
-                    JOptionPane.showMessageDialog(null, ex.getMessage(), "Warning", JOptionPane.ERROR_MESSAGE);}
-        	}
+        	
         	
 		// TODO Auto-generated method stub
         });

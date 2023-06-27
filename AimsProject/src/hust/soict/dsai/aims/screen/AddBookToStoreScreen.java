@@ -49,6 +49,14 @@ public class AddBookToStoreScreen extends AddItemToStoreScreen{
         	Book book = null;
 			try {
 				book = new Book(titletb.getText(),categorytb.getText(),Float.parseFloat(costtb.getText()),authors);
+				try {
+		            this.store.addMedia(book);
+		            JOptionPane.showMessageDialog(null, book.getTitle() + " was added successfully.", "Success", JOptionPane.INFORMATION_MESSAGE);
+		        	new AddBookToStoreScreen(store,cart);
+		        	dispose();
+		        	}
+		        	catch(Exception ex) {
+		            JOptionPane.showMessageDialog(null, ex.getMessage(), "Warning", JOptionPane.ERROR_MESSAGE);}
 			} catch (NumberFormatException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
@@ -56,14 +64,6 @@ public class AddBookToStoreScreen extends AddItemToStoreScreen{
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
-        	try {
-            this.store.addMedia(book);
-            JOptionPane.showMessageDialog(null, book.getTitle() + " was added successfully.", "Success", JOptionPane.INFORMATION_MESSAGE);
-        	new AddBookToStoreScreen(store,cart);
-        	dispose();
-        	}
-        	catch(Exception ex) {
-            JOptionPane.showMessageDialog(null, ex.getMessage(), "Warning", JOptionPane.ERROR_MESSAGE);}
 		// TODO Auto-generated method stub
         });
         tf.add(btncf);

@@ -48,6 +48,14 @@ public class AddDVDToStoreScreen extends AddItemToStoreScreen {
         	DigitalVideoDisc dvd = null;
 			try {
 				dvd = new DigitalVideoDisc(titletb.getText(),categorytb.getText(),drttb.getText(),Integer.parseInt(Lengthtb.getText()),Float.parseFloat(costtb.getText()));
+	        	try {
+	                this.store.addMedia(dvd);
+	                JOptionPane.showMessageDialog(null, dvd.getTitle() + " was added successfully.", "Success", JOptionPane.INFORMATION_MESSAGE);
+	                new AddDVDToStoreScreen(store,cart);
+	                dispose();
+	            	}
+	            	catch(Exception ex) {
+	                JOptionPane.showMessageDialog(null, ex.getMessage(), "Warning", JOptionPane.ERROR_MESSAGE);}
 			} catch (NumberFormatException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
@@ -58,14 +66,7 @@ public class AddDVDToStoreScreen extends AddItemToStoreScreen {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
-        	try {
-                this.store.addMedia(dvd);
-                JOptionPane.showMessageDialog(null, dvd.getTitle() + " was added successfully.", "Success", JOptionPane.INFORMATION_MESSAGE);
-                new AddDVDToStoreScreen(store,cart);
-                dispose();
-            	}
-            	catch(Exception ex) {
-                JOptionPane.showMessageDialog(null, ex.getMessage(), "Warning", JOptionPane.ERROR_MESSAGE);}
+
         });
         tf.add(btncf);
 		// TODO Auto-generated method stub
