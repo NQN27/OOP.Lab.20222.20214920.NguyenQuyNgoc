@@ -1,0 +1,5 @@
+Question : The Aims class must be updated to handle any exceptions generated when the play() methods are 
+called. What happens when you don’t update for them to catch ?
+
+Answer : The exceptions will propagate up the call stack until they are caught and handled by an appropriate exception handler. 
+If no exception handler is found, the program will terminate, and an unhandled exception error will be displayed.
