@@ -1,6 +1,7 @@
 package hust.soict.dsai.aims.media;
 import java.util.Comparator;
 
+import hust.soict.dsai.aims.exception.ErrorTypeInput;
 import hust.soict.dsai.aims.exception.NegativeException;
 public class Media {
 	private int id;
@@ -48,8 +49,12 @@ public class Media {
 		this.category = category;
 		this.cost = cost;
 		if (cost<0) {
-			throw new NegativeException("Wrong Type");
+			throw new NegativeException("Negative cost");
 		}
+		// TODO Auto-generated constructor stub
+	}
+	public Media(String title2, String category2, String string) throws ErrorTypeInput {
+		throw new ErrorTypeInput("Wrong type of cost");
 		// TODO Auto-generated constructor stub
 	}
 	public String toString() {
@@ -57,5 +62,6 @@ public class Media {
 	}
 	public static final Comparator<Media> COMPARATOR_BY_TITLE_COST = new MediaComparatorByTitleCost();
 	public static final Comparator<Media> COMPARATOR_BY_COST_TITLE = new MediaComparatorByCostTitle();
+
 
 }

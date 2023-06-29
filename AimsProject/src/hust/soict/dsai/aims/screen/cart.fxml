@@ -74,12 +74,12 @@
                      <children>
                         <Label text="Filter" />
                         <TextField />
-                        <RadioButton mnemonicParsing="false" selected="true" text="By ID">
+                        <RadioButton fx:id="fID" mnemonicParsing="false" selected="true" text="By ID">
                            <toggleGroup>
                               <ToggleGroup fx:id="filterCategory" />
                            </toggleGroup>
                         </RadioButton>
-                        <RadioButton mnemonicParsing="false" text="By Title" toggleGroup="$filterCategory" />
+                        <RadioButton fx:id="fTItle" mnemonicParsing="false" text="By Title" toggleGroup="$filterCategory" />
                      </children>
                   </HBox>
                   <TableView fx:id="tblMedia">
@@ -95,13 +95,24 @@
                   <ButtonBar prefHeight="40.0" prefWidth="200.0">
                     <buttons>
                       <Button fx:id="btnPlay" mnemonicParsing="false" onAction="#btnPlayMedia" text="Play" />
-                    </buttons>
-                  </ButtonBar>
-                  <ButtonBar prefHeight="40.0" prefWidth="200.0">
-                    <buttons>
                       <Button fx:id="btnRemove" mnemonicParsing="false" onAction="#btnRemovePressed" text="Remove" />
                     </buttons>
                   </ButtonBar>
+                  <ButtonBar prefHeight="40.0" prefWidth="200.0" />
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <ButtonBar>
+                          <buttons>
+                            <Button mnemonicParsing="false" onAction="#btnSort" text="Sort" />
+                              <RadioButton fx:id="sTitle" mnemonicParsing="false" selected="true" text="On Title">
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="sort" />
+                                 </toggleGroup></RadioButton>
+                              <RadioButton fx:id="sCost" mnemonicParsing="false" text="On cost" toggleGroup="$sort" />
+                          </buttons>
+                        </ButtonBar>
+                     </children>
+                  </HBox>
                </children>
                <padding>
                   <Insets left="10.0" />

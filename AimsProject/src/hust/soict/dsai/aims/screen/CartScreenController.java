@@ -25,6 +25,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -59,6 +60,12 @@ public class CartScreenController {
 
     @FXML
     private Label costCalculate;
+    
+    @FXML
+    private RadioButton sCost;
+
+    @FXML
+    private RadioButton sTitle;
     
     @FXML
     private Button btnRemove;
@@ -132,7 +139,18 @@ public class CartScreenController {
 		}
 		
 	}
-	
+
+    @FXML
+    void btnSort(ActionEvent event) {
+    	if (sCost.isSelected() == true) {
+    		cart.SortbyCostTitle();
+    		initialize();
+    	}
+    	if (sTitle.isSelected() == true ) {
+    		cart.SortbyTitleCost();
+    		initialize();
+    	}
+    }
 	@FXML
 	private void initialize() {
 		colMediaTitle.setCellValueFactory(new PropertyValueFactory<Media, String>("title"));
