@@ -9,8 +9,8 @@ import hust.soict.dsai.aims.exception.NegativeException;
 import hust.soict.dsai.aims.media.*;
 import hust.soict.dsai.aims.store.Store;
 public class StoreScreen extends JFrame {
-	private Store store;
-	private Cart cart;
+	protected Store store;
+	protected Cart cart;
 	JPanel createNorth() {
 		JPanel north = new JPanel();
 		north.setLayout(new BoxLayout(north, BoxLayout.Y_AXIS));
@@ -46,6 +46,12 @@ public class StoreScreen extends JFrame {
 			this.dispose();
 			new CartScreen(this.cart,this.store);
 			
+		});
+		JMenuItem removeMDA =  new JMenuItem("Remove Media");
+		menu.add(removeMDA);
+		removeMDA.addActionListener(e-> {
+			this.dispose();
+			new StoreScreenUpdateRemove(this.cart,this.store);
 		});
 		menu.add( viewcart);
 		JMenuBar menuBar = new JMenuBar();

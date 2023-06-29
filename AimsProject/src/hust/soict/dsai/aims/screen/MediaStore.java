@@ -13,8 +13,8 @@ import hust.soict.dsai.aims.store.Store;
 
 
 public class MediaStore extends JPanel {
-	private Media media;
-	private static Cart cart;
+	protected Media media;
+	protected static Cart cart;
 	public MediaStore(Media media,Cart cart) {
 		this.media = media;
 		MediaStore.cart = cart;
